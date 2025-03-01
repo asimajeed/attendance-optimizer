@@ -15,33 +15,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Holidays from "@/components/Holidays";
 import { CheckedState } from "@radix-ui/react-checkbox";
 
-const useLocalStorage = (key: string, initialValue: any) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    if (typeof window === "undefined") return initialValue; // Prevents SSR issues
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.error(error);
-      return initialValue;
-    }
-  });
-
-  const setValue = (value: any) => {
-    try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore));
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return [storedValue, setValue];
-};
 export default function Home() {
   const [userSearch, setUserSearch] = useState("");
   const [courses, setCourses] = useState<CourseInfo[]>([]);
@@ -503,7 +476,10 @@ export default function Home() {
           </CardContent>
         </Card>
       )}
-      <Holidays holidays={holidays} setHolidays={setHolidays} />
+      <Holidays
+        holidays={holidays}
+        //  setHolidays={setHolidays}
+      />
     </div>
   );
 }

@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 
 const Holidays: React.FC<{
   holidays: Date[];
-  setHolidays: React.Dispatch<React.SetStateAction<Date[]>>;
+  // setHolidays: React.Dispatch<React.SetStateAction<Date[]>>;
 }> = (props) => {
-  const { holidays, setHolidays } = props;
-
+  const { holidays/*, setHolidays */} = props;
   return (
     <Card className="w-full max-w-2xl">
       <CardHeader>

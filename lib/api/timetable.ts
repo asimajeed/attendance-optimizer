@@ -1,6 +1,6 @@
 import { CourseInfo, TimetableEntry, ClassData } from "@/types/timetable";
 import axios from "axios";
-import { dayToNum, getDayOfWeek } from "../utils";
+import { dayToNum } from "../utils";
 
 export const fetchTimetable = async (search: string[]) => {
   try {

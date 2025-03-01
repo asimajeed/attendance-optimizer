@@ -28,7 +28,7 @@ npm run dev
 
 ## Tech Stack
 
-- React + TypeScript
+- Next.js + TypeScript
 - date-fns for date handling
 - Local Storage API
 - Shadcn UI components
